@@ -1,6 +1,3 @@
-/**
- * Created by suppanathuss on 1/6/2017 AD.
- */
 import React from 'react';
 
 const style = require('./testComponentStyle.css');
