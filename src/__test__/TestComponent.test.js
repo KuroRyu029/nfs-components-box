@@ -10,4 +10,5 @@ test('Test component showed', () => {
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
+	
 })
