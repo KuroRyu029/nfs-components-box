@@ -14,7 +14,7 @@ import Table from './../src/components/table/table'
 import { Toastr, ToastrContainer } from './../src/components/toastr'
 import Welcome from './Welcome'
 
-import { darkTheme, whiteTheme } from './../src/const/theme'
+import { darkTheme } from './../src/const/theme'
 import toastrContent from './../src/const/toastrContent'
 import './../node_modules/simple-line-icons/css/simple-line-icons.css'
 import CloudLightOTF from '../src/fonts/Cloud-Light.otf'
@@ -512,7 +512,7 @@ storiesOf('Toastr', module)
     </div>
   ))
   .add('white theme toastr default position topRight', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
       แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -539,7 +539,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('dark theme toastr position topLeft', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -566,7 +566,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('white theme toastr with auto hide and position topCenter', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -594,7 +594,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('dark theme toastr with auto hide and position topFull', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -622,7 +622,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('white theme toastr default position bottomRight', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -649,7 +649,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('white theme toastr default position bottomLeft', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -676,7 +676,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('white theme toastr default position bottomCenter', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ
@@ -703,7 +703,7 @@ storiesOf('Toastr', module)
     </ThemeProvider>
   ))
   .add('white theme toastr default position bottomFull', () => (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div>
         <p>นอร์ทพุทธภูมิ เด้อเจี๊ยวบัสอันเดอร์ออกแบบ ออดิชั่นโปรดิวเซอร์วาริชศาสตร์พุทธศตวรรษ
         แซมบ้าคาแร็คเตอร์บ๊อกซ์ ศิลปวัฒนธรรมสารขัณฑ์ ติ่มซำ วิป ฮิต โหงวโรแมนติกเฟอร์นิ

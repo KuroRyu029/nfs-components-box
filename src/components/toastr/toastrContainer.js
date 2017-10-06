@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import styled from 'styled-components'
-import { globalVariable, toastrStyle } from './../../const/theme'
+import { globalVariable } from './../../const/theme'
 
 const c = classnames.bind(styled)
 

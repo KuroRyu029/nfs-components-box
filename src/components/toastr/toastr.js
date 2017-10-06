@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import styled, { types } from 'styled-components'
+import styled from 'styled-components'
 import { globalVariable, toastrStyle } from './../../const/theme'
 
 const c = classnames.bind(styled)
