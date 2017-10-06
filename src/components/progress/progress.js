@@ -35,7 +35,7 @@ const loading = keyframes`
 `
 
 const Progress = styled.div`
-  background-color: ${progressStyle.progressBarColor};
+  background-color: ${props => props.customColor || progressStyle.progressBarColor};
   border-top-left-radius: ${progressStyle.progressBorderRadius};  
   border-bottom-left-radius: ${progressStyle.progressBorderRadius};
   border-top-right-radius: ${props => props.valueNow === '100%' && progressStyle.progressBorderRadius}; 
@@ -77,7 +77,7 @@ const Percent = styled.span`
   `}
 `
 
-export default ({ large, small, valueNow, animated, progressOuterClassName, progressBarClassName, percentClassName, showPercent }) => (
+export default ({ large, small, valueNow, animated, showPercent, customColor, progressOuterClassName, progressBarClassName, percentClassName }) => (
   <ProgressBar
     className={c(progressOuterClassName)}
     large={large}
@@ -87,6 +87,7 @@ export default ({ large, small, valueNow, animated, progressOuterClassName, prog
       className={c(progressBarClassName)}
       valueNow={valueNow}
       animated={animated}
+      customColor={customColor}
     >
       <Percent
         className={c(percentClassName)}

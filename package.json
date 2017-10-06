@@ -14,8 +14,11 @@
   "author": "Nodeframe Solution Co.,Ltd.",
   "license": "ISC",
   "dependencies": {
-    "react": "15.4.1",
-    "react-dom": "15.4.1",
+    "moment": "^2.18.1",
+    "react": "^15.4.1",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dates": "^13.0.1",
+    "react-dom": "^15.4.1",
     "react-select": "^1.0.0-rc.10",
     "simple-line-icons": "^2.4.1",
     "styled-components": "^2.2.1"

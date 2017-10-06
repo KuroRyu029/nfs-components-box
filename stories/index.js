@@ -463,8 +463,7 @@ storiesOf('Progress', module)
       <Progress valueNow="65%" />
       <Progress valueNow="100%" />
       <Progress animated valueNow="53%" />
-      <Progress animated showPercent valueNow="35%" />
-
+      <Progress animated showPercent customColor="#FF585A" valueNow="35%" />
     </div>
   ))
   .add('Large Progress', () => (
@@ -473,7 +472,7 @@ storiesOf('Progress', module)
       <Progress large valueNow="65%" />
       <Progress large valueNow="100%" />
       <Progress animated large valueNow="53%" />
-      <Progress animated large showPercent valueNow="35%" />
+      <Progress animated large showPercent customColor="#FF585A" valueNow="35%" />
     </div>
   ))
   .add('Small Progress', () => (
@@ -482,7 +481,7 @@ storiesOf('Progress', module)
       <Progress small valueNow="65%" />
       <Progress small valueNow="100%" />
       <Progress animated small valueNow="53%" />
-      <Progress animated small showPercent valueNow="35%" />
+      <Progress animated small showPercent customColor="#FF585A" valueNow="35%" />
     </div>
   ))
 
