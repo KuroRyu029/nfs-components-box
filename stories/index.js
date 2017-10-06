@@ -456,7 +456,7 @@ storiesOf('Tab', module)
     </ThemeProvider>
   ))
 
-  storiesOf('Progress', module)
+storiesOf('Progress', module)
   .add('Normal Progress', () => (
     <div>
       <Progress valueNow="25%" />
@@ -464,7 +464,7 @@ storiesOf('Tab', module)
       <Progress valueNow="100%" />
       <Progress animated valueNow="53%" />
       <Progress animated showPercent valueNow="35%" />
-      
+
     </div>
   ))
   .add('Large Progress', () => (
