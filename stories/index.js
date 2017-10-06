@@ -16,6 +16,7 @@ import Welcome from './Welcome'
 
 import { darkTheme } from './../src/const/theme'
 import toastrContent from './../src/const/toastrContent'
+import DropDownContent from './../src/const/dropdownContent'
 import './../node_modules/simple-line-icons/css/simple-line-icons.css'
 import CloudLightOTF from '../src/fonts/Cloud-Light.otf'
 import CloudBoldOTF from '../src/fonts/Cloud-Bold.otf'
@@ -333,15 +334,15 @@ storiesOf('Dropdown', module)
     <div>
       <div>
         <p>Normal Size</p>
-        <Dropdown selectedText="" itemClassName={'test'} placeholder="Select placeholder" />
+        <Dropdown selectedText="" itemClassName={'test'} placeholder="Select placeholder" content={DropDownContent} />
       </div>
       <div>
         <p>Large Size</p>
-        <Dropdown large selectedText="" placeholder="Select placeholder" />
+        <Dropdown large selectedText="" placeholder="Select placeholder" content={DropDownContent} />
       </div>
       <div>
         <p>Small Size</p>
-        <Dropdown small selectedText="" placeholder="Select placeholder" />
+        <Dropdown small selectedText="" placeholder="Select placeholder" content={DropDownContent} />
       </div>
     </div>
   ))
@@ -350,15 +351,15 @@ storiesOf('Dropdown', module)
       <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
         <div>
           <p>Normal Size</p>
-          <Dropdown selectedText="" placeholder="Select placeholder" />
+          <Dropdown selectedText="" placeholder="Select placeholder" content={DropDownContent} />
         </div>
         <div>
           <p>Large Size</p>
-          <Dropdown large selectedText="" placeholder="Select placeholder" />
+          <Dropdown large selectedText="" placeholder="Select placeholder" content={DropDownContent} />
         </div>
         <div>
           <p>Small Size</p>
-          <Dropdown small selectedText="" placeholder="Select placeholder" />
+          <Dropdown small selectedText="" placeholder="Select placeholder" content={DropDownContent} />
         </div>
       </div>
     </ThemeProvider>
@@ -713,7 +714,7 @@ storiesOf('Toastr', module)
         แทกติคบิ๊กเฟิร์มม้านั่งเซอร์วิส หลวงปู่อุเทนคอปเตอร์ สไตล์เด้อด็อกเตอร์โบ้ยบร็อกโคลี
         คาร์โก้เลิฟแหม็บ คีตราชัน เซี้ยว มอลล์เจไดมหาอุปราชาความหมาย ปัจเจกชนแช่แข็ง
         ไลน์เปราะบาง ริคเตอร์ฮ็อต ซูเอี๋ยโลชั่น นิว ก๋ากั่นโปลิศฟีเวอร์ยาวีเฟรม ซี้ภควัมบดี
-        เอสเพรสโซซีอีโอโบรกเกอร์ รีดไถ﻿กรรมาชนอีสต์ดีพาร์ทเมนท์เชอร์รี่ รีไทร์</p>
+        เอสเพรสโซซีอีโอโบรกเกอร์ รีดไถ﻿กรรมาชนอีสต์ดีพาร์ทเมนท์เชอร์รี่ รีไทร์ test</p>
         <ToastrContainer show position="bottomFull">
           {
             toastrContent.reverse().map(data => (

@@ -17,47 +17,48 @@ const Container = styled.div`
   display: none;
   top: 0;
   right: 0;
-  &.show {
+  display: none;
+  ${props => props.show && `
     display: block;
-  }
+  `}
+  ${props => props.position === 'topLeft' && `
+    left: 0;
+    right: inherit;
+  `}
+  ${props => props.position === 'topCenter' && `
+    left: 0;
+    margin: 0 auto;
+  `}
+  ${props => props.position === 'topFull' && `
+    left: 0;
+    right: 0;
+    width: calc(100vw - 20px);
+  `}
+  ${props => props.position === 'bottomRight' && `
+    top: inherit;
+    bottom: 0;
+  `}
+  ${props => props.position === 'bottomLeft' && `
+    top: inherit;
+    right: inherit;
+    bottom: 0;
+    left: 0;
+  `}
+  ${props => props.position === 'bottomCenter' && `
+    top: inherit;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+  `}
+  ${props => props.position === 'bottomFull' && `
+    top: inherit;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: calc(100vw - 20px);
+  `}
   &:empty {
     display: none;
-  }
-  &.topLeft {
-    left: 0;
-    right: inherit;
-  }
-  &.topCenter {
-    left: 0;
-    margin: 0 auto;
-  }
-  &.topFull {
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-  &.bottomRight {
-    top: inherit;
-    bottom: 0;
-  }
-  &.bottomLeft {
-    top: inherit;
-    right: inherit;
-    bottom: 0;
-    left: 0;
-  }
-  &.bottomCenter {
-    top: inherit;
-    bottom: 0;
-    left: 0;
-    margin: 0 auto;
-  }
-  &.bottomFull {
-    top: inherit;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
   }
 `
 
@@ -65,7 +66,9 @@ export default class ToastrContainer extends React.Component {
   render() {
     return (
       <Container
-        className={c({ show: this.props.show }, this.props.position, this.props.className)}
+        className={c(this.props.className)}
+        position={this.props.position}
+        show={this.props.show}
       >
         {this.props.children}
       </Container>
