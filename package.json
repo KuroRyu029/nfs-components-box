@@ -2,7 +2,7 @@
   "name": "@nodeframe/nfs-components-box",
   "version": "0.0.3",
   "description": "bolier plate startup for creating new react component",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
