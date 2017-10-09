@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "6"
+- iojs
+- '6'
 deploy:
   provider: npm
-  email: "YOUR_EMAIL_ADDRESS"
-  api_key: "YOUR_AUTH_TOKEN"
+  email: support@nf-solution.com
+  api_key:
+    secure: fXxszzxIPPRpnxPuLDNo97xum4EIPK3y0jiMBeMm/Tl2b4thP3ToOsLeumVuFEDjjCfnzHeyDI1Zh39R+Ue5UE18il8FNh+jz48IkN4/YVAILSsgMEHoC3rryyWtfnNZoL2a/5ED/8MmkNEQB6hiIvszjIAU2s6YNWGjngJ19XxhHcapAu+kmilbCDpq1x+YAPp/+jReuEf5hiOTCinZUQAn+IFX7YHBhTrAH+/7uxSR9PF2PymUcc1zbCJeWZFEn4v+mHjX9OR4W8gMFZoRu40u/PTZ0fMrcPe/yBfnpbOHiVapxstEAHSzB2YKld1v27hl9BXkMU0+nhpSnwD7he4RourpN9o5p+SQt08idPSdU5SSXyWBsD97/dThW7EuZsAzkUusgZalvGnPOU6TBB7dtGNbqGDgmitKsFO+BoCQhwWhRScHyTfVhtFDl0IfXZLJ4ixb15ctSYrsu6euiVAnY9PZlDikFightis+L6vFLUHZv5/wEBrQLd4j7K9w3gVjE+YK00lmbM8VXmqY5JeYWY1HyDqq2RZxGrhkzrhvJIWPQCAZTyErWU/5rxkBd9mbUkQwu1poW1FtZpBQcKNj8zd5t84R/AdYHdK5QkUDiRJoHTYT83nrRWWse1Oisg79mQN5s9SY8U+ezyk9OKUXOlxwdPL2e9PLZ9aX5ik=
+  on:
+    tags: true
