@@ -1,7 +1,4 @@
 language: node_js
-node_js:
-  - "iojs"
-  - "6.11.4"
 script:
 - npm run test
 deploy:
