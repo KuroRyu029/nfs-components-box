@@ -44,7 +44,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://0.0.0.0:6006/";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -31730,8 +31730,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _templateObject = _taggedTemplateLiteral(['\n  background-color: ', ';\n  border-radius: ', ';\n  margin: 10px;\n  height: 14px;\n  display: flex;\n  &.large {\n    height: 20px;\n  }\n  &.small {\n    height: 6px;\n  }\n'], ['\n  background-color: ', ';\n  border-radius: ', ';\n  margin: 10px;\n  height: 14px;\n  display: flex;\n  &.large {\n    height: 20px;\n  }\n  &.small {\n    height: 6px;\n  }\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  background-color: ', ';\n  border-top-left-radius: ', ';  \n  border-bottom-left-radius: ', ';\n  border-top-right-radius: ', '; \n  border-bottom-right-radius: ', '; \n  width: ', ';\n  transition: all .5s ease;\n\n  &.animated {\n    background-image: linear-gradient(\n      -45deg, \n      rgba(255, 255, 255, .2) 25%, \n      transparent 25%, \n      transparent 50%, \n      rgba(255, 255, 255, .2) 50%, \n      rgba(255, 255, 255, .2) 75%, \n      transparent 75%, \n      transparent\n    );\n    z-index: 1;\n    background-size: 40px 40px;\n    animation: move 2.2s linear infinite;\n    overflow: hidden;\n  }\n  \n  @keyframes move {\n    0% {\n      background-position: 0 0;\n    }\n    100% {\n      background-position: 40px 40px;\n    }\n'], ['\n  background-color: ', ';\n  border-top-left-radius: ', ';  \n  border-bottom-left-radius: ', ';\n  border-top-right-radius: ', '; \n  border-bottom-right-radius: ', '; \n  width: ', ';\n  transition: all .5s ease;\n\n  &.animated {\n    background-image: linear-gradient(\n      -45deg, \n      rgba(255, 255, 255, .2) 25%, \n      transparent 25%, \n      transparent 50%, \n      rgba(255, 255, 255, .2) 50%, \n      rgba(255, 255, 255, .2) 75%, \n      transparent 75%, \n      transparent\n    );\n    z-index: 1;\n    background-size: 40px 40px;\n    animation: move 2.2s linear infinite;\n    overflow: hidden;\n  }\n  \n  @keyframes move {\n    0% {\n      background-position: 0 0;\n    }\n    100% {\n      background-position: 40px 40px;\n    }\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  background-color: ', ';\n  border-radius: ', ';\n  margin: 15px;\n  height: 14px;\n  display: flex;\n  ', '\n  ', '\n'], ['\n  background-color: ', ';\n  border-radius: ', ';\n  margin: 15px;\n  height: 14px;\n  display: flex;\n  ', '\n  ', '\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 40px 40px;\n  }\n'], ['\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 40px 40px;\n  }\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  background-color: ', ';\n  border-top-left-radius: ', ';  \n  border-bottom-left-radius: ', ';\n  border-top-right-radius: ', '; \n  border-bottom-right-radius: ', '; \n  width: ', ';\n  transition: all .5s ease;\n  position: relative;\n\n  ', '\n'], ['\n  background-color: ', ';\n  border-top-left-radius: ', ';  \n  border-bottom-left-radius: ', ';\n  border-top-right-radius: ', '; \n  border-bottom-right-radius: ', '; \n  width: ', ';\n  transition: all .5s ease;\n  position: relative;\n\n  ', '\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n  position: absolute;\n  font-size: 12px;\n  right: 0;\n  top: -90%;\n  visibility: ', ';\n  \n  ', '\n  ', '\n'], ['\n  position: absolute;\n  font-size: 12px;\n  right: 0;\n  top: -90%;\n  visibility: ', ';\n  \n  ', '\n  ', '\n']);
 
 	var _react = __webpack_require__(2);
 
@@ -31756,16 +31758,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	/*------------------------------------------------------
 	progressOuterClassName:  text
 	progressBarClassName:    text
+	percentClassName:        text
 	------------------------------------------------------*/
 
-	var ProgressBar = _styledComponents2.default.div(_templateObject, _theme.progressStyle.progressBg, _theme.progressStyle.progressBorderRadius);
+	var ProgressBar = _styledComponents2.default.div(_templateObject, _theme.progressStyle.progressBg, _theme.progressStyle.progressBorderRadius, function (props) {
+	  return props.large && '\n    height: 20px;\n  ';
+	}, function (props) {
+	  return props.small && '\n    height: 7px;\n  ';
+	});
 
-	var Progress = _styledComponents2.default.div(_templateObject2, _theme.progressStyle.progressBarColor, _theme.progressStyle.progressBorderRadius, _theme.progressStyle.progressBorderRadius, function (props) {
+	var loading = (0, _styledComponents.keyframes)(_templateObject2);
+
+	var Progress = _styledComponents2.default.div(_templateObject3, _theme.progressStyle.progressBarColor, _theme.progressStyle.progressBorderRadius, _theme.progressStyle.progressBorderRadius, function (props) {
 	  return props.valueNow === '100%' && _theme.progressStyle.progressBorderRadius;
 	}, function (props) {
 	  return props.valueNow === '100%' && _theme.progressStyle.progressBorderRadius;
 	}, function (props) {
 	  return props.valueNow;
+	}, function (props) {
+	  return props.animated && '\n    background-image: linear-gradient(\n      -45deg, \n      rgba(255, 255, 255, .2) 25%, \n      transparent 25%, \n      transparent 50%, \n      rgba(255, 255, 255, .2) 50%, \n      rgba(255, 255, 255, .2) 75%, \n      transparent 75%, \n      transparent\n    );\n    background-size: 40px 40px;\n    animation: ' + loading + ' 2.2s linear infinite;\n  ';
+	});
+
+	var Percent = _styledComponents2.default.span(_templateObject4, function (props) {
+	  return props.showPercent ? 'visible' : 'hidden';
+	}, function (props) {
+	  return props.large && '\n    top: -70%;\n    font-size: 14px;\n  ';
+	}, function (props) {
+	  return props.small && '\n    top: -180%;\n    font-size: 11px;    \n  ';
 	});
 
 	exports.default = function (_ref) {
@@ -31774,16 +31793,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	      valueNow = _ref.valueNow,
 	      animated = _ref.animated,
 	      progressOuterClassName = _ref.progressOuterClassName,
-	      progressBarClassName = _ref.progressBarClassName;
+	      progressBarClassName = _ref.progressBarClassName,
+	      percentClassName = _ref.percentClassName,
+	      showPercent = _ref.showPercent;
 	  return _react2.default.createElement(
 	    ProgressBar,
 	    {
-	      className: c({ large: large, small: small }, progressOuterClassName)
+	      className: c(progressOuterClassName),
+	      large: large,
+	      small: small
 	    },
-	    _react2.default.createElement(Progress, {
-	      className: c({ animated: animated }, progressBarClassName),
-	      valueNow: valueNow
-	    })
+	    _react2.default.createElement(
+	      Progress,
+	      {
+	        className: c(progressBarClassName),
+	        valueNow: valueNow,
+	        animated: animated
+	      },
+	      _react2.default.createElement(
+	        Percent,
+	        {
+	          className: c(percentClassName),
+	          showPercent: showPercent,
+	          large: large,
+	          small: small
+	        },
+	        valueNow
+	      )
+	    )
 	  );
 	};
 
