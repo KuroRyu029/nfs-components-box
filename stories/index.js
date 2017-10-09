@@ -460,28 +460,29 @@ storiesOf('Progress', module)
   .add('Normal Progress', () => (
     <div>
       <Progress valueNow="25%" />
-      <Progress valueNow="50%" />
-      <Progress valueNow="75%" />
+      <Progress valueNow="65%" />
       <Progress valueNow="100%" />
       <Progress animated valueNow="53%" />
+      <Progress animated showPercent valueNow="35%" />
+
     </div>
   ))
   .add('Large Progress', () => (
     <div>
       <Progress large valueNow="25%" />
-      <Progress large valueNow="50%" />
-      <Progress large valueNow="75%" />
+      <Progress large valueNow="65%" />
       <Progress large valueNow="100%" />
       <Progress animated large valueNow="53%" />
+      <Progress animated large showPercent valueNow="35%" />
     </div>
   ))
   .add('Small Progress', () => (
     <div>
       <Progress small valueNow="25%" />
-      <Progress small valueNow="50%" />
-      <Progress small valueNow="75%" />
+      <Progress small valueNow="65%" />
       <Progress small valueNow="100%" />
       <Progress animated small valueNow="53%" />
+      <Progress animated small showPercent valueNow="35%" />
     </div>
   ))
 
