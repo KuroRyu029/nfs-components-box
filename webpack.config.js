@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.[ot]tf/,
-        loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]',
+        loader: 'url?limit=200000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]',
       },
       {
         test: /\.eot/,
