@@ -12,6 +12,7 @@ import Sidebar from './../src/components/sidebar/sidebar'
 import Tab from './../src/components/tab/tab'
 import Table from './../src/components/table/table'
 import { Toastr, ToastrContainer } from './../src/components/toastr'
+import TimePicker from './../src/components/timepicker/time-input'
 import Welcome from './Welcome'
 
 import { darkTheme } from './../src/const/theme'
@@ -269,11 +270,11 @@ storiesOf('Check box', module)
       </div>
       <div>
         <p>Large Size</p>
-        <Checkbox id="checkboxLarge" large title="Title" />
+        <Checkbox id="checkboxLarge" title="Title" large />
       </div>
       <div>
         <p>Small Size</p>
-        <Checkbox id="checkboxSmall" small title="Title" />
+        <Checkbox id="checkboxSmall" title="Title" small />
       </div>
     </div>
   ))
@@ -730,3 +731,40 @@ storiesOf('Toastr', module)
       </div>
     </ThemeProvider>
   ))
+
+storiesOf('TimePicker', module)
+  .add('default Time picker', () => (
+    <TimePicker
+      placeholder="Select time or type time in format HH : mm"
+    />
+  ))
+  .add('with currentTime props', () => (
+    <TimePicker
+      currentTime
+    />
+  ))
+  .add('with use12Hours props', () => (
+    <TimePicker
+      use12Hours
+      placeholder="Select time or type time in format HH : mm"
+    />
+  ))
+  .add('with showSecond props', () => (
+    <TimePicker
+      showSecond
+      placeholder="Select time or type time in format HH : mm : ss"
+    />
+  ))
+  .add('dark theme time picker', () => (
+    <ThemeProvider theme={darkTheme}>
+      <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
+        <TimePicker
+          use12Hours
+          showSecond
+          currentTime
+          placeholder="Select time or type time in format HH : mm"
+        />
+      </div>
+    </ThemeProvider>
+  ))
+

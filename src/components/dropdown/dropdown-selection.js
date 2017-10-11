@@ -18,7 +18,7 @@ const DropdownSelectionContainer = styled.div`
   flex-direction: column;
 `
 
-const DropdownSelectionBox = styled.div`
+export const DropdownSelectionBox = styled.div`
   border-radius: ${globalVariable.borderRadius};
   border: 1px solid ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
   padding: 10px 15px;
@@ -52,7 +52,7 @@ const DropdownSelectionBox = styled.div`
   }
 `
 
-const DropdownSelectionItem = styled.ul`
+export const DropdownSelectionItem = styled.ul`
   margin: 5px 0 0;
   padding: 0;
   max-height: 0;

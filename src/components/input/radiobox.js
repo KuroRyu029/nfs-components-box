@@ -17,7 +17,7 @@ const CheckboxContainer = styled.div`
   .radio {
     width: 25px;
     height: 25px;
-    border: 1px solid ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
+    border: 1px solid ${props => (props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder)};
     border-radius: ${globalVariable.borderRadius};
     display: flex;
     justify-content: center;
@@ -78,12 +78,17 @@ const CheckboxContainer = styled.div`
   }
 `
 
-export default ({ id, name, small, large, title, className }) => (
-  <CheckboxContainer>
-    <input id={id} type="radio" name={name} />
-    <label htmlFor={id} className={c('radio', { small: small, large: large }, className)}>
-      <span />
-    </label>
-    <label className={c('title')} htmlFor={id}>{title}</label>
-  </CheckboxContainer>
-)
+export default class Radio extends React.Component {
+  render() {
+    const { id, name, small, large, title, className, ...other } = this.props
+    return (
+      <CheckboxContainer>
+        <input id={id} type="radio" name={name} {...other} />
+        <label htmlFor={id} className={c('radio', { small: small, large: large }, className)}>
+          <span />
+        </label>
+        <label className={c('title')} htmlFor={id}>{title}</label>
+      </CheckboxContainer>
+    )
+  }
+}

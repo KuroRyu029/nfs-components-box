@@ -47,13 +47,14 @@ export default class InputFile extends React.Component {
     this.setState({ selectedFileName: evt.target.files[0].name })
   }
   render() {
+    const { id, className, ...other } = this.props
     return (
       <InputFileContainer>
-        <Label htmlFor={this.props.id} className={c(this.props.className)}>
+        <Label htmlFor={id} className={c(className)} {...other}>
           <span>{this.state.selectedFileName}</span>
           <div className={c('button')}>select file</div>
         </Label>
-        <input onChange={(evt) => { this.selectFile(evt) }} id={this.props.id} type="file" />
+        <input onChange={(evt) => { this.selectFile(evt) }} id={id} type="file" />
       </InputFileContainer>
     )
   }

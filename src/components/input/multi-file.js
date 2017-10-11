@@ -7,7 +7,7 @@ import { globalVariable, multiFileStyle } from './../../const/theme'
 const c = classnames.bind(styled)
 
 /*------------------------------------------------------
-
+getFile:      fn
 ------------------------------------------------------*/
 
 const MultiFileContainer = styled.div`
@@ -45,7 +45,7 @@ const Label = styled.label`
   width: 100%;
   min-height: 300px;
   cursor: pointer;
-  border: 2px dashed ${props => props.theme.multipleInputBorderColor ? props.theme.multipleInputBorderColor : multiFileStyle.multipleInputBorderColor};
+  border: 2px dashed ${props => (props.theme.multipleInputBorderColor ? props.theme.multipleInputBorderColor : multiFileStyle.multipleInputBorderColor)};
   border-radius: ${globalVariable.borderRadius};
   display: flex;
   justify-content: center;
@@ -57,12 +57,12 @@ const Label = styled.label`
       i {
         font-family: 'simple-line-icons';
         font-size: 60px;
-        color: ${props => props.theme.multipleInputLogoColor ? props.theme.multipleInputLogoColor : multiFileStyle.multipleInputLogoColor};
+        color: ${props => (props.theme.multipleInputLogoColor ? props.theme.multipleInputLogoColor : multiFileStyle.multipleInputLogoColor)};
       }
       margin-bottom: 15px;
     }
     > span {
-      color: ${props => props.theme.multipleInputColor ? props.theme.multipleInputColor : multiFileStyle.multipleInputColor};
+      color: ${props => (props.theme.multipleInputColor ? props.theme.multipleInputColor : multiFileStyle.multipleInputColor)};
       font-size: 20px;
     }
   }
@@ -72,7 +72,7 @@ const Label = styled.label`
 `
 
 const FileName = styled.div`
-  border-bottom: 1px solid ${props => props.theme.multipleInputColor ? props.theme.multipleInputColor : multiFileStyle.multipleInputColor};
+  border-bottom: 1px solid ${props => (props.theme.multipleInputColor ? props.theme.multipleInputColor : multiFileStyle.multipleInputColor)};
   display: flex;
   flex-basis: 100%;
   justify-content: space-between;
@@ -103,7 +103,7 @@ const FileName = styled.div`
     }
     .filename {
       margin: 0 10px;
-      color: ${props => props.theme.multipleInputFileNameColor ? props.theme.multipleInputFileNameColor : multiFileStyle.multipleInputFileNameColor};
+      color: ${props => (props.theme.multipleInputFileNameColor ? props.theme.multipleInputFileNameColor : multiFileStyle.multipleInputFileNameColor)};
     }
     &.error {
       opacity: 0.4;
@@ -123,9 +123,9 @@ const FileName = styled.div`
   }
   .upload-remove {
     cursor: pointer;
-    color: ${props => props.theme.multipleInputRemoveColor ? props.theme.multipleInputRemoveColor : multiFileStyle.multipleInputRemoveColor};
+    color: ${props => (props.theme.multipleInputRemoveColor ? props.theme.multipleInputRemoveColor : multiFileStyle.multipleInputRemoveColor)};
     &:hover {
-      color: ${props => props.theme.multipleInputRemoveHoverColor ? props.theme.multipleInputRemoveHoverColor : multiFileStyle.multipleInputRemoveHoverColor};
+      color: ${props => (props.theme.multipleInputRemoveHoverColor ? props.theme.multipleInputRemoveHoverColor : multiFileStyle.multipleInputRemoveHoverColor)};
     }
     @media only screen and (max-width: ${globalVariable.screenMobile}) {
       display: none;
@@ -156,12 +156,18 @@ export default class MultiFileUpload extends React.Component {
   handleOnDrop(evt) {
     evt.stopPropagation()
     evt.preventDefault()
-    this.createNewList(evt.dataTransfer.files)
+    const fileList = this.createNewList(evt.dataTransfer.files)
+    if (fileList !== null && this.props.getFile) {
+      this.props.getFile(fileList)
+    }
     return false
   }
   handleSelectChange(evt) {
     this.setState({ hideFileList: false })
-    this.createNewList(evt.target.files)
+    const fileList = this.createNewList(evt.target.files)
+    if (fileList !== null && this.props.getFile) {
+      this.props.getFile(fileList)
+    }
   }
   createNewList(files) {
     const newFileList = [...this.state.fileList]
@@ -180,24 +186,31 @@ export default class MultiFileUpload extends React.Component {
     })
     if (newFileList !== null) {
       this.setState({ fileList: newFileList, hideFileList: false })
+      return newFileList
+    } else {
+      return null
     }
   }
   removeFile(evt) {
     const newFileList = [...this.state.fileList]
     newFileList.splice(evt.target.getAttribute('data-index'), 1)
     this.setState({ fileList: newFileList })
+    if (this.props.getFile) {
+      this.props.getFile(newFileList)
+    }
   }
   render() {
+    const { className, ...other } = this.props
     return (
       <MultiFileContainer>
         <InputFile>
-          <Label htmlFor="img" innerRef={(el) => { this.dropZone = el }} className={c(this.props.className)}>
+          <Label htmlFor="img" innerRef={(el) => { this.dropZone = el }} className={c(className)}>
             <div>
               <div><i className={c('icon-drawer')} /></div>
               <span>Click or Drag files to upload</span>
             </div>
           </Label>
-          <input type="file" id="img" name="img" multiple onChange={(evt) => { this.handleSelectChange(evt) }} />
+          <input type="file" id="img" name="img" multiple onChange={(evt) => { this.handleSelectChange(evt) }} {...other} />
         </InputFile>
         <FileList className={c({ hide: this.state.hideFileList })}>
           {
@@ -210,7 +223,7 @@ export default class MultiFileUpload extends React.Component {
                 {
                   data.status ?
                     <i data-index={index} role="presentation" onClick={(evt) => { this.removeFile(evt) }} className={c('upload-remove', 'icon-trash')} />
-                  : <span className={c('error-message')}>{data.message}</span>
+                    : <span className={c('error-message')}>{data.message}</span>
                 }
                 {
                   data.status &&

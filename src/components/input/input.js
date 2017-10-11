@@ -20,22 +20,22 @@ const InputContainer = styled.div`
   flex-direction: column;
 `
 
-const Input = styled.input`
-  border: 1px solid ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
+export const Input = styled.input`
+  border: 1px solid ${props => (props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder)};
   border-radius: ${inputStyle.inputBorderRadius};
   padding: ${inputStyle.inputSizeNormalPadding};
   font-size: 18px;
-  color: ${props => props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor};
+  color: ${props => (props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor)};
   background: transparent;
   font-family: 'CloudLight';
   line-height: 0.9;
   &::placeholder {
-    color: ${props => props.theme.inputPlaceholderColor ? props.theme.inputPlaceholderColor : inputStyle.inputPlaceholderColor};
+    color: ${props => (props.theme.inputPlaceholderColor ? props.theme.inputPlaceholderColor : inputStyle.inputPlaceholderColor)};
   }
   &:focus,
   &:active {
     outline: 0;
-    border: 1px solid ${props => props.theme.inputBorderActive ? props.theme.inputBorderActive : inputStyle.inputBorderActive};
+    border: 1px solid ${props => (props.theme.inputBorderActive ? props.theme.inputBorderActive : inputStyle.inputBorderActive)};
   }
   &:disabled {
     background: ${inputStyle.inputDisabledBg};
@@ -47,7 +47,7 @@ const Input = styled.input`
   }
   &.error {
     border: 1px solid ${globalVariable.colorError};
-    box-shadow: 0 0 20px ${props => props.theme.inputShadow ? props.theme.inputShadow : inputStyle.inputShadow};
+    box-shadow: 0 0 20px ${props => (props.theme.inputShadow ? props.theme.inputShadow : inputStyle.inputShadow)};
     display: block;
     + span {
       font-size: ${globalVariable.errorMsgFontSize};
@@ -68,19 +68,33 @@ const Input = styled.input`
     padding: ${inputStyle.inputSizeSmallPadding};
   }
 `
-
-export default ({ disabled, defaultValue, error, errorMsg, success, large, small, className }) => (
-  <InputContainer>
-    <Input
-      className={c({ error: error, success: success, large: large, small: small }, className)}
-      type="text"
-      placeholder="insert your name"
-      disabled={disabled}
-      defaultValue={defaultValue}
-    />
-    {
-      error && errorMsg ?
-        <span>Email is wrong</span> : ''
-    }
-  </InputContainer>
-)
+export default class InputComponent extends React.Component {
+  render() {
+    const {
+      disabled,
+      defaultValue,
+      error,
+      errorMsg,
+      success,
+      large,
+      small,
+      className,
+      ...other } = this.props
+    return (
+      <InputContainer>
+        <Input
+          className={c({ error: error, success: success, large: large, small: small }, className)}
+          type="text"
+          placeholder="insert your name"
+          disabled={disabled}
+          defaultValue={defaultValue}
+          {...other}
+        />
+        {
+          error && errorMsg ?
+            <span>Email is wrong</span> : ''
+        }
+      </InputContainer>
+    )
+  }
+}
