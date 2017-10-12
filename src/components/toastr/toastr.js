@@ -101,9 +101,9 @@ export default class Toastr extends React.Component {
           {
             this.props.type === 'error' ?
               <i className={c('icon-close')} />
-            : this.props.type === 'success' ?
-              <i className={c('icon-check')} />
-            : <i className={c('icon-info')} />
+              : this.props.type === 'success' ?
+                <i className={c('icon-check')} />
+                : <i className={c('icon-info')} />
           }
           <span>{this.props.title}</span>
         </div>

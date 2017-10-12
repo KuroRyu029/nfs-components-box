@@ -73,12 +73,17 @@ const CheckboxContainer = styled.div`
   }
 `
 
-export default ({ id, small, large, title, className }) => (
-  <CheckboxContainer>
-    <input id={id} type="checkbox" />
-    <label htmlFor={id} className={c('radio', { small: small, large: large }, className)}>
-      <i className={c('icon-check')} />
-    </label>
-    <label className={c('title')} htmlFor={id}>{title}</label>
-  </CheckboxContainer>
-)
+export default class Checkbox extends React.Component {
+  render() {
+    const { id, small, large, title, className, ...other } = this.props
+    return (
+      <CheckboxContainer>
+        <input id={id} type="checkbox" />
+        <label htmlFor={id} className={c('radio', { small: small, large: large }, className)} {...other} >
+          <i className={c('icon-check')} />
+        </label>
+        <label className={c('title')} htmlFor={id}>{title}</label>
+      </CheckboxContainer>
+    )
+  }
+}

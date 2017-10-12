@@ -12,10 +12,14 @@ import Sidebar from './../src/components/sidebar/sidebar'
 import Tab from './../src/components/tab/tab'
 import Table from './../src/components/table/table'
 import { Toastr, ToastrContainer } from './../src/components/toastr'
+import TimePicker from './../src/components/timepicker/time-input'
+import { Container, Row, Col, Visible, Hidden, ScreenClassRender, ClearFix } from './../src/components/grid/grid'
+import Link from './../src/components/link/link'
 import Welcome from './Welcome'
 
 import { darkTheme } from './../src/const/theme'
 import toastrContent from './../src/const/toastrContent'
+import DropDownContent from './../src/const/dropdownContent'
 import './../node_modules/simple-line-icons/css/simple-line-icons.css'
 import CloudLightOTF from '../src/fonts/Cloud-Light.otf'
 import CloudBoldOTF from '../src/fonts/Cloud-Bold.otf'
@@ -268,11 +272,11 @@ storiesOf('Check box', module)
       </div>
       <div>
         <p>Large Size</p>
-        <Checkbox id="checkboxLarge" large title="Title" />
+        <Checkbox id="checkboxLarge" title="Title" large />
       </div>
       <div>
         <p>Small Size</p>
-        <Checkbox id="checkboxSmall" small title="Title" />
+        <Checkbox id="checkboxSmall" title="Title" small />
       </div>
     </div>
   ))
@@ -333,15 +337,15 @@ storiesOf('Dropdown', module)
     <div>
       <div>
         <p>Normal Size</p>
-        <Dropdown selectedText="" itemClassName={'test'} placeholder="Select placeholder" />
+        <Dropdown selectedText="" itemClassName={'test'} placeholder="Select placeholder" content={DropDownContent} />
       </div>
       <div>
         <p>Large Size</p>
-        <Dropdown large selectedText="" placeholder="Select placeholder" />
+        <Dropdown large selectedText="" placeholder="Select placeholder" content={DropDownContent} />
       </div>
       <div>
         <p>Small Size</p>
-        <Dropdown small selectedText="" placeholder="Select placeholder" />
+        <Dropdown small selectedText="" placeholder="Select placeholder" content={DropDownContent} />
       </div>
     </div>
   ))
@@ -350,15 +354,15 @@ storiesOf('Dropdown', module)
       <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
         <div>
           <p>Normal Size</p>
-          <Dropdown selectedText="" placeholder="Select placeholder" />
+          <Dropdown selectedText="" placeholder="Select placeholder" content={DropDownContent} />
         </div>
         <div>
           <p>Large Size</p>
-          <Dropdown large selectedText="" placeholder="Select placeholder" />
+          <Dropdown large selectedText="" placeholder="Select placeholder" content={DropDownContent} />
         </div>
         <div>
           <p>Small Size</p>
-          <Dropdown small selectedText="" placeholder="Select placeholder" />
+          <Dropdown small selectedText="" placeholder="Select placeholder" content={DropDownContent} />
         </div>
       </div>
     </ThemeProvider>
@@ -714,7 +718,7 @@ storiesOf('Toastr', module)
         แทกติคบิ๊กเฟิร์มม้านั่งเซอร์วิส หลวงปู่อุเทนคอปเตอร์ สไตล์เด้อด็อกเตอร์โบ้ยบร็อกโคลี
         คาร์โก้เลิฟแหม็บ คีตราชัน เซี้ยว มอลล์เจไดมหาอุปราชาความหมาย ปัจเจกชนแช่แข็ง
         ไลน์เปราะบาง ริคเตอร์ฮ็อต ซูเอี๋ยโลชั่น นิว ก๋ากั่นโปลิศฟีเวอร์ยาวีเฟรม ซี้ภควัมบดี
-        เอสเพรสโซซีอีโอโบรกเกอร์ รีดไถ﻿กรรมาชนอีสต์ดีพาร์ทเมนท์เชอร์รี่ รีไทร์</p>
+        เอสเพรสโซซีอีโอโบรกเกอร์ รีดไถ﻿กรรมาชนอีสต์ดีพาร์ทเมนท์เชอร์รี่ รีไทร์ test</p>
         <ToastrContainer show position="bottomFull">
           {
             toastrContent.reverse().map(data => (
@@ -729,4 +733,81 @@ storiesOf('Toastr', module)
         </ToastrContainer>
       </div>
     </ThemeProvider>
+  ))
+
+storiesOf('TimePicker', module)
+  .add('default Time picker', () => (
+    <TimePicker
+      placeholder="Select time or type time in format HH : mm"
+    />
+  ))
+  .add('with currentTime props', () => (
+    <TimePicker
+      currentTime
+    />
+  ))
+  .add('with use12Hours props', () => (
+    <TimePicker
+      use12Hours
+      placeholder="Select time or type time in format HH : mm"
+    />
+  ))
+  .add('with showSecond props', () => (
+    <TimePicker
+      showSecond
+      placeholder="Select time or type time in format HH : mm : ss"
+    />
+  ))
+  .add('dark theme time picker', () => (
+    <ThemeProvider theme={darkTheme}>
+      <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
+        <TimePicker
+          use12Hours
+          showSecond
+          currentTime
+          placeholder="Select time or type time in format HH : mm"
+        />
+      </div>
+    </ThemeProvider>
+  ))
+
+storiesOf('Grid', module)
+  .add('Grid', () => (
+    <Container fluid style={{ height: '300px', lineHeight: '32px' }}>
+      <Row debug>
+        <Col debug>
+          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+        </Col>
+      </Row>
+      <Row grow debug>
+        <Col debug>
+          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+        </Col>
+      </Row>
+      <Row debug>
+        <Col debug>
+          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+        </Col>
+      </Row>
+    </Container>
+  ))
+
+storiesOf('Link', module)
+  .add('link', () => (
+    <div>
+      <p style={{ 'font-family': 'Prajard' }}>
+        ป๊อกพาร์ตุ๊ก
+        <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </Link>
+        ซัพพลายเออร์ เกรย์เกมส์ยนตรกร
+      </p>
+      <p>
+        ป๊อกพาร์ตุ๊ก
+        <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </Link>
+        ซัพพลายเออร์ เกรย์เกมส์ยนตรกร
+      </p>
+    </div>
   ))

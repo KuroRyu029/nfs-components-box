@@ -12,6 +12,7 @@ Async:            boolean
 multi:            boolean
 creatable:        boolean
 name:             text
+onHandleChange:   function
 ------------------------------------------------------*/
 
 const options = [
@@ -49,7 +50,7 @@ const InputSelectContainer = styled.div`
     &.is-focused:not(.is-open) {
       > .Select-control {
         border: 1px solid;
-        border-color: ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
+        border-color: ${props => (props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder)};
         box-shadow: none;
       }
     }
@@ -89,13 +90,13 @@ const InputSelectContainer = styled.div`
         line-height: 0.9;
         padding: 0;
         .Select-value-label {
-          color: ${props => props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor} !important;
+          color: ${props => (props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor)} !important;
         }
       } 
     }
     .Select-control {
       padding: ${inputStyle.inputSizeNormalPadding};
-      border-color: ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
+      border-color: ${props => (props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder)};
       border-radius: ${inputStyle.inputBorderRadius};
       background: transparent;
       table-layout: fixed;
@@ -103,14 +104,14 @@ const InputSelectContainer = styled.div`
         display: flex;
         align-items: center;
         padding: ${inputStyle.inputSizeNormalPadding};
-        color: ${props => props.theme.inputPlaceholderColor ? props.theme.inputPlaceholderColor : inputStyle.inputPlaceholderColor};
+        color: ${props => (props.theme.inputPlaceholderColor ? props.theme.inputPlaceholderColor : inputStyle.inputPlaceholderColor)};
       }
       .Select-input {
         height: auto;
         padding: 0;
         > input {
           padding: 0;
-          color: ${props => props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor};
+          color: ${props => (props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor)};
         }
       }
       &:hover {
@@ -124,12 +125,12 @@ const InputSelectContainer = styled.div`
     }
     .Select-menu-outer {
       background: transparent;
-      border-color: ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
+      border-color: ${props => (props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder)};
       .Select-option {
         border: 1px solid;
         border-color: transparent;
         padding: ${inputStyle.inputSizeNormalPadding};
-        color: ${props => props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor};
+        color: ${props => (props.theme.inputColor ? props.theme.inputColor : inputStyle.inputColor)};
         box-shadow: none;
         background: transparent;
         &.is-disabled {
@@ -146,7 +147,7 @@ const InputSelectContainer = styled.div`
             background: transparent;
             border: 1px solid;
             border-color: ${globalVariable.colorPrimary};
-            box-shadow: 0 0 10px ${props => props.theme.inputShadow ? props.theme.inputShadow : inputStyle.inputShadow};
+            box-shadow: 0 0 10px ${props => (props.theme.inputShadow ? props.theme.inputShadow : inputStyle.inputShadow)};
           }
           &.is-selected {
             color: #FFFFFF;
@@ -167,42 +168,49 @@ export default class InputSelect extends React.Component {
   }
   handleInputChange(val) {
     this.setState({ selectedValue: val })
+    if (this.props.onHandleChange) {
+      this.props.onHandleChange(this.state.selectedValue)
+    }
   }
   render() {
+    const { async, name, multi, creatable, className, ...other } = this.props
     return (
       <InputSelectContainer className={c('input-select')}>
         {
-          this.props.async ?
+          async ?
             <Select.Async
-              name={this.props.name}
+              name={name}
               value={this.state.selectedValue}
               clearable={false}
-              onChange={this.handleInputChange.bind(this)}
               loadOptions={getOptions}
-              multi={this.props.multi}
-              className={this.props.className}
-            />
-          : this.props.creatable ?
-            <Creatable
-              name={this.props.name}
-              value={this.state.selectedValue}
-              options={options}
-              clearable={false}
+              multi={multi}
+              className={className}
+              {...other}
               onChange={this.handleInputChange.bind(this)}
-              multi={this.props.multi}
-              className={this.props.className}
-              allowCreate
             />
-          :
-            <Select
-              name={this.props.name}
-              value={this.state.selectedValue}
-              options={options}
-              clearable={false}
-              onChange={this.handleInputChange.bind(this)}
-              multi={this.props.multi}
-              className={this.props.className}
-            />
+            : creatable ?
+              <Creatable
+                name={name}
+                value={this.state.selectedValue}
+                options={options}
+                clearable={false}
+                multi={multi}
+                className={className}
+                allowCreate
+                {...other}
+                onChange={this.handleInputChange.bind(this)}
+              />
+              :
+              <Select
+                name={name}
+                value={this.state.selectedValue}
+                options={options}
+                clearable={false}
+                multi={multi}
+                className={className}
+                {...other}
+                onChange={this.handleInputChange.bind(this)}
+              />
         }
       </InputSelectContainer>
     )

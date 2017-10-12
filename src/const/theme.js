@@ -123,6 +123,12 @@ export const sidebarStyle = {
   sideBarTabBorderColor:          globalVariable.colorDarkerGray,   
 }
 
+export const timeSlideStyle = {
+  timeSlideColor:                 globalVariable.colorDarkestGray,
+  timeSlideSelectedColor:         globalVariable.colorPrimary,
+  timeSlideDisabledColor:         globalVariable.colorGray,
+}
+
 export const darkTheme = {
   cardBg:                         globalVariable.colorDarker,
   cardFontColor:                  '#FFFFFF',

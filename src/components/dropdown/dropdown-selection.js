@@ -18,7 +18,7 @@ const DropdownSelectionContainer = styled.div`
   flex-direction: column;
 `
 
-const DropdownSelectionBox = styled.div`
+export const DropdownSelectionBox = styled.div`
   border-radius: ${globalVariable.borderRadius};
   border: 1px solid ${props => props.theme.inputBorder ? props.theme.inputBorder : inputStyle.inputBorder};
   padding: 10px 15px;
@@ -52,7 +52,7 @@ const DropdownSelectionBox = styled.div`
   }
 `
 
-const DropdownSelectionItem = styled.ul`
+export const DropdownSelectionItem = styled.ul`
   margin: 5px 0 0;
   padding: 0;
   max-height: 0;
@@ -116,13 +116,14 @@ export default class DropdownSelection extends React.Component {
             !this.state.selectedText && <i className={c('icon-arrow-down')} />
           }
         </DropdownSelectionBox>
-        <DropdownSelectionItem className={c({ active: this.state.toggle }, this.props.itemClassName)}>
-          <li role="presentation" onClick={() => this.setSelectedText('first child')}>first child</li>
-          <li role="presentation" onClick={() => this.setSelectedText('item 1')}>item 1</li>
-          <li role="presentation" onClick={() => this.setSelectedText('item 2')}>item 2</li>
-          <li className={c('disabled')}>item 3</li>
-          <li role="presentation" onClick={() => this.setSelectedText('item 4')}>item 4</li>
-          <li role="presentation" onClick={() => this.setSelectedText('last child')}>last child</li>
+        <DropdownSelectionItem
+          className={c({ active: this.state.toggle }, this.props.itemClassName)}
+        >
+          {
+            this.props.content.map(data => (
+              <li role="presentation" className={c({ disabled: data.disabled })} onClick={() => this.setSelectedText(data.value)}>{data.title}</li>
+            ))
+          }
         </DropdownSelectionItem>
       </DropdownSelectionContainer>
     )
