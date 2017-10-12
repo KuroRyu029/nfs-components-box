@@ -1,0 +1,12 @@
+language: node_js
+cache:
+  yarn: true
+script:
+- npm run test
+deploy:
+  provider: npm
+  email: support@nf-solution.com
+  api_key:
+    secure: vuc6gsMK0L/36zK6u6CYd8AZdVaRjsYF3PaQK1x5/0sEtpsXh4kGOAFkAIQDe9Kh+9MzS2r2k8YSpO5xTRqeRQC1vJiHZspWOGM1/42FN9JBEi+XIHN9CXRoRrLztscsFvo9Q3ALTk4Dt6Et7StS9VWJQe15kpL5XpBLQvmNIRTnPM5SxnLZuK2DIMrd4Ggb4xZMtgbTWuDWQCX74S+QniQbERCcibQIWpxulby7t2l1SeOw8M/eR4dpdEIB/FGSGZLNdLOpxXvQxZkhLe0VTjH6uhk7hSVIUBepT2a2+a+9pgYfr2FzBqk1GYOJ411i5qP6p7OnwgCT5ubHfpSdPhdCyte4MRTyze5GOxCXEx9yAm5uwUuxJiVCZG4J0R76J8nJRae2MTuehd2yk7ldVgt5fzrfgeXvFyQvNFF7nfxGn6Pb7kuW1TqLR+RSmgTp4GzntOJcNAl0jLuAMeG9VoivTKuUhLnnqCeoFtw/88lOgpksMkhvzMz4IZuBRzUQSKd5unISrdniNqFCz/LGR9q1yyL3IITlg/gobWPQ1cHewHzpxkqhtb0nacFRh/805MOZMPpnFT66/JfCGfzx1/1k9ey1Xir9FnQqMUTtxwenXRpYsz4KskQv5VJqxPMDzPC0UXZjEaEhJTnSwMl0php3EklacC0XkKXPsfIGHM0=
+  on:
+    tags: true

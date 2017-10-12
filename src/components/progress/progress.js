@@ -17,12 +17,12 @@ const ProgressBar = styled.div`
   margin: 15px;
   height: 14px;
   display: flex;
-  &.large {
+  ${props => props.large && `
     height: 20px;
-  }
-  &.small {
+  `}
+  ${props => props.small && `
     height: 7px;
-  }
+  `}
 `
 
 const loading = keyframes`
@@ -44,7 +44,7 @@ const Progress = styled.div`
   transition: all .5s ease;
   position: relative;
 
-  &.animated {
+  ${props => props.animated && `
     background-image: linear-gradient(
       -45deg, 
       rgba(255, 255, 255, .2) 25%, 
@@ -57,7 +57,7 @@ const Progress = styled.div`
     );
     background-size: 40px 40px;
     animation: ${loading} 2.2s linear infinite;
-  }
+  `}
 `
 
 const Percent = styled.span`
@@ -66,25 +66,33 @@ const Percent = styled.span`
   right: 0;
   top: -90%;
   visibility: ${props => (props.showPercent ? 'visible' : 'hidden')};
-  &.large {
-    top: -60%;
-  }
-  &.small {
-    top: -200%;
-  }
+  
+  ${props => props.large && `
+    top: -70%;
+    font-size: 14px;
+  `}
+  ${props => props.small && `
+    top: -180%;
+    font-size: 11px;    
+  `}
 `
 
 export default ({ large, small, valueNow, animated, progressOuterClassName, progressBarClassName, percentClassName, showPercent }) => (
   <ProgressBar
-    className={c({ large: large, small: small }, progressOuterClassName)}
+    className={c(progressOuterClassName)}
+    large={large}
+    small={small}
   >
     <Progress
-      className={c({ animated: animated }, progressBarClassName)}
+      className={c(progressBarClassName)}
       valueNow={valueNow}
+      animated={animated}
     >
       <Percent
+        className={c(percentClassName)}
         showPercent={showPercent}
-        className={c({ large: large, small: small }, percentClassName)}
+        large={large}
+        small={small}
       >
         {valueNow}
       </Percent>
