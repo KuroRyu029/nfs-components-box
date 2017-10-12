@@ -10,6 +10,9 @@ import Progress from './components/progress/progress'
 import Sidebar from './components/sidebar/sidebar'
 import Tab from './components/tab/tab'
 import Table from './components/table/table'
+import TimePicker from './../src/components/timepicker/time-input'
+import { Container, Row, Col, Visible, Hidden, ScreenClassRender, ClearFix } from './../src/components/grid/grid'
+import Link from './../src/components/link/link'
 import { Toastr, ToastrContainer } from './components/toastr'
 
 import './../node_modules/simple-line-icons/css/simple-line-icons.css'
@@ -79,4 +82,13 @@ export {
   Table,
   Toastr,
   ToastrContainer,
+  TimePicker,
+  Container,
+  Row,
+  Col,
+  Visible,
+  Hidden,
+  ScreenClassRender,
+  ClearFix,
+  Link,
 }
