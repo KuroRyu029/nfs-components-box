@@ -1,6 +1,6 @@
 {
   "name": "@nodeframe/nfs-components-box",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "bolier plate startup for creating new react component",
   "main": "index.js",
   "scripts": {
