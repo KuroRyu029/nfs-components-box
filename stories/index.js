@@ -8,14 +8,16 @@ import { Checkbox, Input, InputFile, InputSelect, MultipleFile, Radiobox } from 
 import Layout, { Burger, Content, Footer, Header, Menu, Sider } from './../src/components/layout'
 import { Modal, ModalContent, ModalFooter } from './../src/components/modal'
 import Progress from './../src/components/progress/progress'
-import Sidebar from './../src/components/sidebar/sidebar'
-import Tab from './../src/components/tab/tab'
+import Sidebar, { SidebarHeader } from './../src/components/sidebar/sidebar'
+import Tab, { TabContent } from './../src/components/tab/tab'
 import Table from './../src/components/table/table'
 import { Toastr, ToastrContainer } from './../src/components/toastr'
 import TimePicker from './../src/components/timepicker/time-input'
 import { Container, Row, Col, Visible, Hidden, ScreenClassRender, ClearFix } from './../src/components/grid/grid'
-import Link from './../src/components/link/link'
+import TextLink from './../src/components/link/link'
 import Welcome from './Welcome'
+
+import SidebarTest from './../src/components/sidebar/sidebar-v2'
 
 import { darkTheme } from './../src/const/theme'
 import toastrContent from './../src/const/toastrContent'
@@ -76,11 +78,55 @@ storiesOf('Layout', module)
 
 storiesOf('Side Bar', module)
   .add('default Side Bar', () => (
-    <Sidebar />
+    <Sidebar>
+      <SidebarHeader>
+        <a href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </a>
+        <a href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </a>
+        <a href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </a>
+      </SidebarHeader>
+    </Sidebar>
   ))
   .add('Dark theme Side Bar', () => (
     <ThemeProvider theme={darkTheme}>
       <Sidebar />
+    </ThemeProvider>
+  ))
+  .add('sidebar-test', () => (
+    <SidebarTest
+      sidebarContent={
+        <div>
+          <a><i className="icon-fire" />Link 1</a>
+          <a><i className="icon-fire" />Link 2</a>
+          <a><i className="icon-fire" />Link 3</a>
+        </div>
+      }
+    >
+      <div>
+        <span>Content go here</span>
+      </div>
+    </SidebarTest>
+  ))
+  .add('sidebar-test darkTheme', () => (
+    <ThemeProvider theme={darkTheme}>
+      <SidebarTest
+        sidebarContent={
+          <div>
+            <a><i className="icon-fire" />Link 1</a>
+            <a><i className="icon-fire" />Link 2</a>
+            <a><i className="icon-fire" />Link 3</a>
+          </div>
+        }
+      >
+        <div>
+          <span>Content go here</span>
+        </div>
+      </SidebarTest>
     </ThemeProvider>
   ))
 
@@ -443,9 +489,12 @@ storiesOf('Table', module)
 storiesOf('Tab', module)
   .add('default tab', () => (
     <Tab>
-      <div>Tab 1 Content</div>
+      <TabContent title="tab0" iconClass="icon-fire">tab 0 content</TabContent>
+      <TabContent title="tab2">tab 2 content</TabContent>
+      <TabContent title="tab1">tab 1 content</TabContent>
+      {/*<div>Tab 1 Content</div>
       <div>Tab 2 Content</div>
-      <div>Tab 3 Content</div>
+      <div>Tab 3 Content</div>*/}
     </Tab>
   ))
   .add('dark theme tab', () => (
@@ -776,17 +825,17 @@ storiesOf('Grid', module)
     <Container fluid style={{ height: '300px', lineHeight: '32px' }}>
       <Row debug>
         <Col debug>
-          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+          <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</TextLink>
         </Col>
       </Row>
       <Row grow debug>
         <Col debug>
-          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+          <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</TextLink>
         </Col>
       </Row>
       <Row debug>
         <Col debug>
-          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+          <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</TextLink>
         </Col>
       </Row>
     </Container>
@@ -797,16 +846,16 @@ storiesOf('Link', module)
     <div>
       <p style={{ 'font-family': 'Prajard' }}>
         ป๊อกพาร์ตุ๊ก
-        <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+        <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
           นี่คือลิงก์ที่ใช้ตัวหนา
-        </Link>
+        </TextLink>
         ซัพพลายเออร์ เกรย์เกมส์ยนตรกร
       </p>
       <p>
         ป๊อกพาร์ตุ๊ก
-        <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+        <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
           นี่คือลิงก์ที่ใช้ตัวหนา
-        </Link>
+        </TextLink>
         ซัพพลายเออร์ เกรย์เกมส์ยนตรกร
       </p>
     </div>
