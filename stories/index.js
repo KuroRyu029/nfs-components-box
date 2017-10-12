@@ -13,6 +13,8 @@ import Tab from './../src/components/tab/tab'
 import Table from './../src/components/table/table'
 import { Toastr, ToastrContainer } from './../src/components/toastr'
 import TimePicker from './../src/components/timepicker/time-input'
+import { Container, Row, Col, Visible, Hidden, ScreenClassRender, ClearFix } from './../src/components/grid/grid'
+import Link from './../src/components/link/link'
 import Welcome from './Welcome'
 
 import { darkTheme } from './../src/const/theme'
@@ -768,3 +770,43 @@ storiesOf('TimePicker', module)
     </ThemeProvider>
   ))
 
+storiesOf('Grid', module)
+  .add('Grid', () => (
+    <Container fluid style={{ height: '300px', lineHeight: '32px' }}>
+      <Row debug>
+        <Col debug>
+          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+        </Col>
+      </Row>
+      <Row grow debug>
+        <Col debug>
+          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+        </Col>
+      </Row>
+      <Row debug>
+        <Col debug>
+          <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</Link>
+        </Col>
+      </Row>
+    </Container>
+  ))
+
+storiesOf('Link', module)
+  .add('link', () => (
+    <div>
+      <p style={{ 'font-family': 'Prajard' }}>
+        ป๊อกพาร์ตุ๊ก
+        <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </Link>
+        ซัพพลายเออร์ เกรย์เกมส์ยนตรกร
+      </p>
+      <p>
+        ป๊อกพาร์ตุ๊ก
+        <Link href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
+          นี่คือลิงก์ที่ใช้ตัวหนา
+        </Link>
+        ซัพพลายเออร์ เกรย์เกมส์ยนตรกร
+      </p>
+    </div>
+  ))
