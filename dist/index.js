@@ -59,7 +59,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.ToastrContainer = exports.Toastr = exports.Table = exports.Tab = exports.Sidebar = exports.Progress = exports.ModalFooter = exports.ModalContent = exports.Modal = exports.Sider = exports.Menu = exports.Header = exports.Footer = exports.Content = exports.Burger = exports.Layout = exports.Radiobox = exports.MultipleFile = exports.InputSelect = exports.InputFile = exports.Input = exports.Checkbox = exports.Dropdown = exports.Card = exports.Button = undefined;
+	exports.ToastrContainer = exports.Toastr = exports.Table = exports.Tab = exports.MenuItem = exports.Icon = exports.SidebarFooter = exports.SidebarHeader = exports.Sidebar = exports.Progress = exports.ModalFooter = exports.ModalContent = exports.Modal = exports.Sider = exports.Menu = exports.Header = exports.Footer = exports.Content = exports.Burger = exports.Layout = exports.Radiobox = exports.MultipleFile = exports.InputSelect = exports.InputFile = exports.Input = exports.Checkbox = exports.Dropdown = exports.Card = exports.Button = undefined;
 
 	var _templateObject = _taggedTemplateLiteral(['\n  @font-face {\n    font-family: \'CloudLight\';\n    src: url(', ') format(\'opentype\');\n  }\n  @font-face {\n    font-family: \'CloudBold\';\n    src: url(', ') format(\'opentype\');\n  }\n  @font-face {\n    font-family: \'Prajard\';\n    src: url(', ') format(\'opentype\');\n  }\n\n  body {\n    font-family: \'CloudLight\';\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    font-size: 18px;\n  }\n\n  h1 {\n    margin: 0;\n    font-size: 34px;\n  }\n  h2 {\n    margin: 0;\n    font-size: 28px;\n  }\n  h3 {\n    margin: 0;\n    font-size: 22px;\n    line-height: 0.9;\n  }\n'], ['\n  @font-face {\n    font-family: \'CloudLight\';\n    src: url(', ') format(\'opentype\');\n  }\n  @font-face {\n    font-family: \'CloudBold\';\n    src: url(', ') format(\'opentype\');\n  }\n  @font-face {\n    font-family: \'Prajard\';\n    src: url(', ') format(\'opentype\');\n  }\n\n  body {\n    font-family: \'CloudLight\';\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    font-size: 18px;\n  }\n\n  h1 {\n    margin: 0;\n    font-size: 34px;\n  }\n  h2 {\n    margin: 0;\n    font-size: 28px;\n  }\n  h3 {\n    margin: 0;\n    font-size: 22px;\n    line-height: 0.9;\n  }\n']);
 
@@ -90,8 +90,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _progress2 = _interopRequireDefault(_progress);
 
 	var _sidebar = __webpack_require__(261);
-
-	var _sidebar2 = _interopRequireDefault(_sidebar);
 
 	var _tab = __webpack_require__(262);
 
@@ -143,7 +141,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.ModalContent = _modal.ModalContent;
 	exports.ModalFooter = _modal.ModalFooter;
 	exports.Progress = _progress2.default;
-	exports.Sidebar = _sidebar2.default;
+	exports.Sidebar = _sidebar.Sidebar;
+	exports.SidebarHeader = _sidebar.SidebarHeader;
+	exports.SidebarFooter = _sidebar.SidebarFooter;
+	exports.Icon = _sidebar.Icon;
+	exports.MenuItem = _sidebar.MenuItem;
 	exports.Tab = _tab2.default;
 	exports.Table = _table2.default;
 	exports.Toastr = _toastr.Toastr;
