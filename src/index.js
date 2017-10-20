@@ -7,7 +7,7 @@ import { Checkbox, Input, InputFile, InputSelect, MultipleFile, Radiobox } from 
 import Layout, { Burger, Content, Footer, Header, Menu, Sider } from './components/layout'
 import { Modal, ModalContent, ModalFooter } from './components/modal'
 import Progress from './components/progress/progress'
-import Sidebar from './components/sidebar/sidebar'
+import { Sidebar, SidebarHeader, SidebarFooter, Icon, MenuItem } from './components/sidebar/sidebar'
 import Tab from './components/tab/tab'
 import Table from './components/table/table'
 import { Toastr, ToastrContainer } from './components/toastr'
@@ -75,6 +75,10 @@ export {
   ModalFooter,
   Progress,
   Sidebar,
+  SidebarHeader,
+  SidebarFooter,
+  Icon,
+  MenuItem,
   Tab,
   Table,
   Toastr,
