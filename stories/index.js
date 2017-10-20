@@ -5,7 +5,7 @@ import Button from './../src/components/button/button'
 import Card from './../src/components/card/card'
 import Dropdown from './../src/components/dropdown/dropdown-selection'
 import { Checkbox, Input, InputFile, InputSelect, MultipleFile, Radiobox } from './../src/components/input'
-import Layout, { Burger, Content, Footer, Header, Menu, Sider } from './../src/components/layout'
+import { Layout, Burger, Content, Footer, Header, Menu, Sider } from './../src/components/layout'
 import { Modal, ModalContent, ModalFooter } from './../src/components/modal'
 import Progress from './../src/components/progress/progress'
 import { Sidebar, SidebarHeader, SidebarFooter, Icon, MenuItem } from './../src/components/sidebar/sidebar'
@@ -68,8 +68,7 @@ storiesOf('Welcome', module)
 
 storiesOf('Layout', module)
   .add('Basic Layout', () => (
-    <Layout>
-      <Menu />
+    <Layout className="layout classname">
       <Footer> Footer </Footer>
     </Layout>
   ))

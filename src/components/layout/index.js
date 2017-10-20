@@ -6,5 +6,5 @@ import Burger from './burger'
 import Layout from './layout'
 import Menu from './menu'
 
-export { Content, Header, Footer, Sider, Burger, Menu }
-export default Layout
+export { Layout, Content, Header, Footer, Sider, Burger, Menu }
+// export default Layout
