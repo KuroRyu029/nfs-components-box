@@ -8,7 +8,7 @@ import { Checkbox, Input, InputFile, InputSelect, MultipleFile, Radiobox } from 
 import Layout, { Burger, Content, Footer, Header, Menu, Sider } from './../src/components/layout'
 import { Modal, ModalContent, ModalFooter } from './../src/components/modal'
 import Progress from './../src/components/progress/progress'
-import Sidebar, { SidebarHeader } from './../src/components/sidebar/sidebar'
+import { Sidebar, SidebarHeader, SidebarFooter, Icon, MenuItem } from './../src/components/sidebar/sidebar'
 import Tab, { TabContent } from './../src/components/tab/tab'
 import Table from './../src/components/table/table'
 import { Toastr, ToastrContainer } from './../src/components/toastr'
@@ -16,8 +16,6 @@ import TimePicker from './../src/components/timepicker/time-input'
 import { Container, Row, Col, Visible, Hidden, ScreenClassRender, ClearFix } from './../src/components/grid/grid'
 import TextLink from './../src/components/link/link'
 import Welcome from './Welcome'
-
-import SidebarTest from './../src/components/sidebar/sidebar-v2'
 
 import { darkTheme } from './../src/const/theme'
 import toastrContent from './../src/const/toastrContent'
@@ -80,53 +78,53 @@ storiesOf('Side Bar', module)
   .add('default Side Bar', () => (
     <Sidebar>
       <SidebarHeader>
-        <a href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
-          นี่คือลิงก์ที่ใช้ตัวหนา
-        </a>
-        <a href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
-          นี่คือลิงก์ที่ใช้ตัวหนา
-        </a>
-        <a href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">
-          นี่คือลิงก์ที่ใช้ตัวหนา
-        </a>
+        <MenuItem href="http://www.google.com">
+          <Icon className="icon-mustache" />
+          Menu 1
+        </MenuItem>
+        <MenuItem href="http://www.google.com">
+          <Icon className="icon-mustache" />
+          Menu 2
+        </MenuItem>
+        <MenuItem href="http://www.google.com">
+          <Icon className="icon-mustache" />
+          Menu 3
+        </MenuItem>
+        <MenuItem href="http://www.google.com">
+          <Icon className="icon-mustache" />
+          Menu 4
+        </MenuItem>
       </SidebarHeader>
+      <SidebarFooter>
+        <div>Content Footer Here</div>
+      </SidebarFooter>
     </Sidebar>
   ))
   .add('Dark theme Side Bar', () => (
     <ThemeProvider theme={darkTheme}>
-      <Sidebar />
-    </ThemeProvider>
-  ))
-  .add('sidebar-test', () => (
-    <SidebarTest
-      sidebarContent={
-        <div>
-          <a><i className="icon-fire" />Link 1</a>
-          <a><i className="icon-fire" />Link 2</a>
-          <a><i className="icon-fire" />Link 3</a>
-        </div>
-      }
-    >
-      <div>
-        <span>Content go here</span>
-      </div>
-    </SidebarTest>
-  ))
-  .add('sidebar-test darkTheme', () => (
-    <ThemeProvider theme={darkTheme}>
-      <SidebarTest
-        sidebarContent={
-          <div>
-            <a><i className="icon-fire" />Link 1</a>
-            <a><i className="icon-fire" />Link 2</a>
-            <a><i className="icon-fire" />Link 3</a>
-          </div>
-        }
-      >
-        <div>
-          <span>Content go here</span>
-        </div>
-      </SidebarTest>
+      <Sidebar>
+        <SidebarHeader>
+          <MenuItem href="http://www.google.com">
+            <Icon className="icon-mustache" />
+            Menu 1
+          </MenuItem>
+          <MenuItem href="http://www.google.com">
+            <Icon className="icon-mustache" />
+            Menu 2
+          </MenuItem>
+          <MenuItem href="http://www.google.com">
+            <Icon className="icon-mustache" />
+            Menu 3
+          </MenuItem>
+          <MenuItem href="http://www.google.com">
+            <Icon className="icon-mustache" />
+            Menu 4
+          </MenuItem>
+        </SidebarHeader>
+        <SidebarFooter>
+          <div>Content Footer Here</div>
+        </SidebarFooter>
+      </Sidebar>
     </ThemeProvider>
   ))
 
@@ -822,19 +820,15 @@ storiesOf('TimePicker', module)
 
 storiesOf('Grid', module)
   .add('Grid', () => (
-    <Container fluid style={{ height: '300px', lineHeight: '32px' }}>
+    <Container fluid>
       <Row debug>
-        <Col debug>
+        <Col sm={4} debug>
           <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</TextLink>
         </Col>
-      </Row>
-      <Row grow debug>
-        <Col debug>
+        <Col sm={4} debug>
           <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</TextLink>
         </Col>
-      </Row>
-      <Row debug>
-        <Col debug>
+        <Col sm={4} debug>
           <TextLink href="https://jsxmachina.github.io/react-grid-system/#responsive-grid" target="_blank">link react-grid-system</TextLink>
         </Col>
       </Row>
