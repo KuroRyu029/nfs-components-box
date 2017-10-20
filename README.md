@@ -25,6 +25,8 @@ So now all ready. Go!!
 
 This project use storybook for developing and testing. So you can just run storybook.
 
+When you created a new component please **DON'T** forget to add that component to (``/src/index.js``)
+
 ### Build and publish
 `npm run build`
 <br>
