@@ -33,6 +33,10 @@ This will build the project from entry point (``/src/index.js``) to ``/dist/inde
 
 So now the project is ready for publishing. You need to set package.json to point main to file `/dist/index.js`.
 
+`npm version [<newversion> | major | minor | patch]`
+<br>
+`git push --tag`
+
 ### Support
 Now this project support only `css`. 
 `scss` is not supported in this project yet.
