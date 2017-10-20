@@ -47,8 +47,12 @@ const TabHeader = styled.ul`
   }
 `
 
-const TabContent = styled.div`
+const TabContentContainer = styled.div`
   padding: 20px 15px;
+`
+
+export const TabContent = styled.div`
+  // border: 1px solid red;
 `
 
 export default class Tab extends React.Component {
@@ -65,34 +69,25 @@ export default class Tab extends React.Component {
     return (
       <TabContainer>
         <TabHeader className={c(this.props.tabHeaderClassName)}>
-          <li
-            role="presentation"
-            className={c({ active: this.state.active === 0 })}
-            onClick={() => this.handleClick(0)}
-          >
-            <i className={c('icon', 'icon-fire')} />
-            <span>Tab1</span>
-          </li>
-          <li
-            role="presentation"
-            className={c({ active: this.state.active === 1 })}
-            onClick={() => this.handleClick(1)}
-          >
-            <i className={c('icon', 'icon-fire')} />
-            <span>Tab2</span>
-          </li>
-          <li
-            role="presentation"
-            className={c({ active: this.state.active === 2 })}
-            onClick={() => this.handleClick(2)}
-          >
-            <i className={c('icon', 'icon-fire')} />
-            <span>Tab3</span>
-          </li>
+          {
+            this.props.children.map((data, index) => (
+              <li
+                role="presentation"
+                className={c({ active: this.state.active === index })}
+                onClick={() => this.handleClick(index)}
+              >
+                {
+                  data.props.iconClass &&
+                  <i className={c('icon', data.props.iconClass )} />
+                }
+                <span>{ data.props.title }</span>
+              </li>
+            ))
+          }
         </TabHeader>
-        <TabContent className={c(this.props.tabContentClassName)}>
+        <TabContentContainer className={c(this.props.tabContentClassName)}>
           {this.props.children[this.state.active]}
-        </TabContent>
+        </TabContentContainer>
       </TabContainer>
     )
   }
