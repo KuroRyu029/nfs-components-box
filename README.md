@@ -25,6 +25,8 @@ So now all ready. Go!!
 
 This project use storybook for developing and testing. So you can just run storybook.
 
+When you created a new component please **DON'T** forget to add that component to (``/src/index.js``)
+
 ### Build and publish
 `npm run build`
 <br>
@@ -32,6 +34,10 @@ This project use storybook for developing and testing. So you can just run story
 This will build the project from entry point (``/src/index.js``) to ``/dist/index.js``.
 
 So now the project is ready for publishing. You need to set package.json to point main to file `/dist/index.js`.
+
+`npm version [<newversion> | major | minor | patch]`
+<br>
+`git push --tag`
 
 ### Support
 Now this project support only `css`. 
