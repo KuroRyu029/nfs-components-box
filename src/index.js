@@ -8,7 +8,7 @@ import Layout, { Burger, Content, Footer, Header, Menu, Sider } from './componen
 import { Modal, ModalContent, ModalFooter } from './components/modal'
 import Progress from './components/progress/progress'
 import { Sidebar, SidebarHeader, SidebarFooter, Icon, MenuItem } from './components/sidebar/sidebar'
-import Tab from './components/tab/tab'
+import Tab, { TabContent } from './components/tab/tab'
 import Table from './components/table/table'
 import { Toastr, ToastrContainer } from './components/toastr'
 import { Container, Row, Col, Visible, Hidden, ScreenClassRender, ClearFix } from './components/grid/grid'

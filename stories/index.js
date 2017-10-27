@@ -489,18 +489,15 @@ storiesOf('Tab', module)
       <TabContent title="tab0" iconClass="icon-fire">tab 0 content</TabContent>
       <TabContent title="tab2">tab 2 content</TabContent>
       <TabContent title="tab1">tab 1 content</TabContent>
-      {/*<div>Tab 1 Content</div>
-      <div>Tab 2 Content</div>
-      <div>Tab 3 Content</div>*/}
     </Tab>
   ))
   .add('dark theme tab', () => (
     <ThemeProvider theme={darkTheme}>
       <div style={{ 'background-color': '#303239', padding: '20px', color: '#FFFFFF' }}>
         <Tab>
-          <div>Tab 1 Content</div>
-          <div>Tab 2 Content</div>
-          <div>Tab 3 Content</div>
+          <TabContent title="tab0" iconClass="icon-fire">tab 0 content</TabContent>
+          <TabContent title="tab2">tab 2 content</TabContent>
+          <TabContent title="tab1">tab 1 content</TabContent>
         </Tab>
       </div>
     </ThemeProvider>

@@ -37,12 +37,6 @@ const TabHeader = styled.ul`
     }
     @media only screen and (max-width: ${globalVariable.screenMobile}) {
       padding: 10px;
-      .icon {
-        margin-right: 0;
-      }
-      > span {
-        display: none;
-      }
     }
   }
 `
